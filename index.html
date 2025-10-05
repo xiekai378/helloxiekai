@@ -151,6 +151,13 @@
                 return;
             }
 
+            // 检查是否包含禁止的内容
+            const forbidden = /凯|kai|Kai|KAI/gi;
+            if (forbidden.test(name) || forbidden.test(message)) {
+                alert('内容包含禁止的字符，请修改后重新提交');
+                return;
+            }
+
             if (!supabase) {
                 alert('数据库未连接');
                 return;
